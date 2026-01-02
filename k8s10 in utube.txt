@@ -1,0 +1,49 @@
+kubectl create namespace tritree
+kubectl get --all-namespaces
+kubectl get pods (it shows default namespaces1)
+kubectl get pods -n triree
+kubectx}=content:.kube/onfig default(it is used for cluster like multiple nodes)
+
+kubens}=there are N no of namespaces we can easily switch one namespace to another namespaces
+git clone https://github.com/ahmetb/kubectx
+kubectl get namespaces
+kubectl create namespace tritree
+kubectl get namespaces
+
+
+vi busybox.yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox2
+  namespace: default
+spec:
+  containers:
+  - name: busy
+    image: busybox
+    command:
+      - sleep
+      - "3600"
+kubectl create -f busybox.yml
+kubectl get pods
+
+vi busybox.yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox2
+  namespace: tritree
+spec:
+  containers:
+  - name: busy
+    image: busybox
+    command:
+      - sleep
+      - "3600"
+kubectl create -f busybox.yml
+kubectl get pods -n tritree
+kubectl get all --all-namespaces
+kubectl get all -n kubernets-dashboard
+kubectl config set-context --current --namespace=default
+kubectl get pods --all-namespaces
+kubectl get pods -a
